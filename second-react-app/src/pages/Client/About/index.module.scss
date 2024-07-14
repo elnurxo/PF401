@@ -1,0 +1,19 @@
+.box {
+    width: 100px;
+    height: 100px;
+    border: 3px solid green;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bgc {
+    background-color: yellowgreen;
+}
+
+$danger-color: red;
+
+.color-red {
+    color: $danger-color;
+}

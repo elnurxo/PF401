@@ -1,0 +1,10 @@
+.employees-list{
+    border: 1px solid red;
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 22px;
+}
+.employees-list hr{
+    margin: 12px 0;
+}
