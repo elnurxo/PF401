@@ -1,0 +1,67 @@
+{
+  "songs": [
+    {
+      "id": "1",
+      "title": "Bohemian Rhapsody",
+      "genre": "Rock",
+      "artist": "Queen",
+      "year": 1975,
+      "coverImg": "https://i1.sndcdn.com/artworks-000116795481-6fmihq-t500x500.jpg",
+      "album": "A Night at the Opera"
+    },
+    {
+      "id": "2",
+      "title": "Rolling in the Deep",
+      "genre": "Pop",
+      "artist": "Adele",
+      "year": 2010,
+      "coverImg": "https://upload.wikimedia.org/wikipedia/en/7/74/Adele_-_Rolling_in_the_Deep.png",
+      "album": "21"
+    },
+    {
+      "id": "4",
+      "title": "Shape of You",
+      "genre": "Pop",
+      "artist": "Ed Sheeran",
+      "year": 2017,
+      "coverImg": "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
+      "album": "÷ (Divide)"
+    },
+    {
+      "id": "7",
+      "title": "Billie Jean",
+      "genre": "Pop",
+      "artist": "Michael Jackson",
+      "year": 1982,
+      "coverImg": "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
+      "album": "Thriller"
+    },
+    {
+      "id": "8",
+      "title": "Sweet Child O' Mine",
+      "genre": "Rock",
+      "artist": "Guns N' Roses",
+      "year": 1987,
+      "coverImg": "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
+      "album": "Appetite for Destruction"
+    },
+    {
+      "id": "a782",
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "album": "After Hours",
+      "year": 2020,
+      "coverImg": "https://upload.wikimedia.org/wikipedia/en/e/e6/The_Weeknd_-_Blinding_Lights.png",
+      "genre": "pop"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "john123",
+      "email": "john@gmail.com",
+      "role": "admin",
+      "password": "Admin123"
+    }
+  ]
+}

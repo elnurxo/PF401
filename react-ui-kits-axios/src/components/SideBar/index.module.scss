@@ -1,0 +1,16 @@
+.sidebar-wrapper {
+    position: fixed;
+    right: 0;
+    top: 80px;
+    z-index: -1;
+    height: 100vh;
+    overflow: hidden;
+    width: 50%;
+    transform: translateX(100%);
+    transition: .3s ease-in-out;
+    background-color: #1CB351;
+}
+
+.active {
+    transform: translateX(0%);
+}
