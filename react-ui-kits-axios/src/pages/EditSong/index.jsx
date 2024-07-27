@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import styles from "./index.module.scss";
 import InputLabel from "@mui/material/InputLabel";
@@ -6,39 +7,48 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Container from "../../components/Container";
 import { useFormik } from "formik";
-import { post } from "../../services/api/api";
+import { getOne, patchOne, post } from "../../services/api/api";
 import { endpoints } from "../../config/constants";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { songValidationSchema } from "../../validations/addsong.validation";
+import { useEffect, useState } from "react";
 
-const AddSong = () => {
+const EditSong = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const [updatingSong, setUpdatingSong] = useState({});
+
+  useEffect(() => {
+    getOne(endpoints.songs, id).then((res) => {
+      setUpdatingSong({ ...res.data });
+    });
+  }, [id]);
+
   const formik = useFormik({
     initialValues: {
-      title: "",
-      artist: "",
-      album: "",
-      year: "",
-      coverImg: "",
-      genre: "",
+      title: updatingSong.title,
+      artist: updatingSong.artist,
+      album: updatingSong.album,
+      year: updatingSong.year,
+      coverImg: updatingSong.coverImg,
+      genre: updatingSong.genre,
     },
     validationSchema: songValidationSchema,
     onSubmit: (values, actions) => {
-      console.log("validation valid");
-      post(endpoints.songs, values);
+      patchOne(endpoints.songs, id, values);
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "New Song Posted",
+        title: "Song Updated",
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate('/songs');
+      navigate("/songs");
       actions.resetForm();
     },
+    enableReinitialize: true,
   });
-
   return (
     <Container>
       <form
@@ -46,16 +56,15 @@ const AddSong = () => {
           e.preventDefault();
           formik.handleSubmit();
         }}
-        className={styles["add-song-form"]}
+        className={styles["edit-song-form"]}
       >
-        <h3 style={{ textAlign: "center" }}>Add New Song Form</h3>
+        <h3 style={{ textAlign: "center" }}>Edit Song Form</h3>
         <TextField
           value={formik.values.title}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="title"
           id="outlined-basic"
-          label="Title"
           required
           type="text"
           variant="outlined"
@@ -69,7 +78,6 @@ const AddSong = () => {
           onBlur={formik.handleBlur}
           name="artist"
           id="outlined-basic"
-          label="Artist"
           required
           type="text"
           variant="outlined"
@@ -83,7 +91,6 @@ const AddSong = () => {
           onBlur={formik.handleBlur}
           name="album"
           id="outlined-basic"
-          label="Album"
           required
           type="text"
           variant="outlined"
@@ -97,7 +104,6 @@ const AddSong = () => {
           onBlur={formik.handleBlur}
           name="year"
           id="outlined-basic"
-          label="Year"
           required
           type="number"
           min={1900}
@@ -112,7 +118,6 @@ const AddSong = () => {
           onBlur={formik.handleBlur}
           name="coverImg"
           id="outlined-basic"
-          label="Cover Image URL"
           required
           type="url"
           variant="outlined"
@@ -124,13 +129,13 @@ const AddSong = () => {
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Genre</InputLabel>
           <Select
+            key={formik.values.genre}
             value={formik.values.genre}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             name="genre"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            label="Age"
           >
             <MenuItem value={"rock"}>Rock</MenuItem>
             <MenuItem value={"pop"}>Pop</MenuItem>
@@ -144,11 +149,11 @@ const AddSong = () => {
           <span style={{ color: "red" }}>{formik.errors.genre}</span>
         )}
         <Button variant="contained" color="success" type={"submit"}>
-          Add
+          Update
         </Button>
       </form>
     </Container>
   );
 };
 
-export default AddSong;
+export default EditSong;

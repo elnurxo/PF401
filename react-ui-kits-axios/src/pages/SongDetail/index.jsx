@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteOne, getOne } from "../../services/api";
-import { endpoints } from "../../services/constants";
+import { deleteOne, getOne } from "../../services/api/api";
+import { endpoints } from "../../config/constants";
 import { Button, Grid } from "@mui/material";
 import Container from "../../components/Container"
 import Card from "@mui/material/Card";

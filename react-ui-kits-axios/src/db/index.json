@@ -3,43 +3,16 @@
     {
       "id": "1",
       "title": "Bohemian Rhapsody",
-      "genre": "Rock",
+      "genre": "rock",
       "artist": "Queen",
       "year": 1975,
       "coverImg": "https://i1.sndcdn.com/artworks-000116795481-6fmihq-t500x500.jpg",
       "album": "A Night at the Opera"
     },
     {
-      "id": "2",
-      "title": "Rolling in the Deep",
-      "genre": "Pop",
-      "artist": "Adele",
-      "year": 2010,
-      "coverImg": "https://upload.wikimedia.org/wikipedia/en/7/74/Adele_-_Rolling_in_the_Deep.png",
-      "album": "21"
-    },
-    {
-      "id": "4",
-      "title": "Shape of You",
-      "genre": "Pop",
-      "artist": "Ed Sheeran",
-      "year": 2017,
-      "coverImg": "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
-      "album": "÷ (Divide)"
-    },
-    {
-      "id": "7",
-      "title": "Billie Jean",
-      "genre": "Pop",
-      "artist": "Michael Jackson",
-      "year": 1982,
-      "coverImg": "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
-      "album": "Thriller"
-    },
-    {
       "id": "8",
       "title": "Sweet Child O' Mine",
-      "genre": "Rock",
+      "genre": "metal",
       "artist": "Guns N' Roses",
       "year": 1987,
       "coverImg": "https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg",
@@ -58,10 +31,27 @@
   "users": [
     {
       "id": "1",
-      "username": "john123",
-      "email": "john@gmail.com",
+      "username": "elnurxo",
+      "email": "elnur@gmail.com",
       "role": "admin",
-      "password": "Admin123"
+      "password": "Admin123",
+      "basket": []
+    },
+    {
+      "id": "2",
+      "username": "eldarlrd",
+      "email": "eldar@gmail.com",
+      "role": "client",
+      "password": "Eldar123",
+      "basket": []
+    },
+    {
+      "id": "fe00",
+      "email": "ilhan@gmail.com",
+      "username": "ilhan123",
+      "password": "Ilhan123",
+      "role": "client",
+      "basket": []
     }
   ]
 }

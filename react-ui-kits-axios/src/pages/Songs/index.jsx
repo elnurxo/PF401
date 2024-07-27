@@ -9,15 +9,20 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { deleteOne, getAll } from "../../services/api";
-import { endpoints } from "../../services/constants";
+import { deleteOne, getAll } from "../../services/api/api";
+import { endpoints } from "../../config/constants";
 import Swal from "sweetalert2";
+import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
+import { useFavorites } from "../../services/context/favoriteContext.jsx";
 
 const Songs = () => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { favorites, addToFavorite, removeFromFavorite, checkFavorite } =
+    useFavorites();
+  console.log("favs: ", favorites);
   useEffect(() => {
     getAll(endpoints.songs).then((resp) => {
       setSongs([...resp.data]);
@@ -65,6 +70,27 @@ const Songs = () => {
                     </Button>
                     <Button
                       onClick={() => {
+                        //check if contains in favorites
+                        const check = checkFavorite(song.id);
+                        if (check) {
+                          removeFromFavorite(song.id);
+                        } else {
+                          addToFavorite(song);
+                        }
+                      }}
+                      sx={{ color: "black", fontSize: "18px" }}
+                    >
+                      {favorites.find((x) => x.id == song.id) ? (
+                        <MdFavorite style={{ color: "red" }} />
+                      ) : (
+                        <MdFavoriteBorder />
+                      )}
+                    </Button>
+                    <Button variant="contained">
+                      <Link style={{color:'white',textDecoration:'none'}} to={`/edit/${song.id}`}>Edit</Link>
+                    </Button>
+                    <Button
+                      onClick={() => {
                         Swal.fire({
                           title: "Are you sure?",
                           text: "You won't be able to revert this!",
@@ -78,9 +104,13 @@ const Songs = () => {
                             //delete from API
                             deleteOne(endpoints.songs, song.id);
                             //state update - delete
-                            setSongs((currentSongs)=>{
-                              return [...currentSongs.filter((x)=>x.id!==song.id)];
-                            })
+                            setSongs((currentSongs) => {
+                              return [
+                                ...currentSongs.filter((x) => x.id !== song.id),
+                              ];
+                            });
+                            //local storage remove
+                            removeFromFavorite(song.id);
                             Swal.fire({
                               title: "Deleted!",
                               text: "Your file has been deleted.",
