@@ -35,6 +35,7 @@
       "email": "elnur@gmail.com",
       "role": "admin",
       "password": "Admin123",
+      "balance": 178.10999999999999,
       "basket": []
     },
     {
@@ -43,6 +44,7 @@
       "email": "eldar@gmail.com",
       "role": "client",
       "password": "Eldar123",
+      "balance": 644.03,
       "basket": []
     },
     {
@@ -51,7 +53,246 @@
       "username": "ilhan123",
       "password": "Ilhan123",
       "role": "client",
+      "balance": 79.02000000000001,
       "basket": []
+    }
+  ],
+  "albums": [
+    {
+      "id": "1",
+      "title": "Thriller",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Michael_Jackson_-_Thriller.png/220px-Michael_Jackson_-_Thriller.png",
+      "artist": "Michael Jackson",
+      "genre": "Pop",
+      "year": 1982,
+      "stockCount": 100,
+      "price": 19.99
+    },
+    {
+      "id": "2",
+      "title": "Back in Black",
+      "cover": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ACDC_Back_in_Black_cover.svg",
+      "artist": "AC/DC",
+      "genre": "Rock",
+      "year": 1980,
+      "stockCount": 50,
+      "price": 15.99
+    },
+    {
+      "id": "3",
+      "title": "Abbey Road",
+      "cover": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ACDC_Back_in_Black_cover.svg",
+      "artist": "The Beatles",
+      "genre": "Rock",
+      "year": 1969,
+      "stockCount": 75,
+      "price": 22.99
+    },
+    {
+      "id": "4",
+      "title": "Lemonade",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png/220px-Beyonce_-_Lemonade_%28Official_Album_Cover%29.png",
+      "artist": "Beyoncé",
+      "genre": "R&B",
+      "year": 2016,
+      "stockCount": 60,
+      "price": 17.99
+    },
+    {
+      "id": "5",
+      "title": "Random Access Memories",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png/220px-Beyonce_-_Lemonade_%28Official_Album_Cover%29.png",
+      "artist": "Daft Punk",
+      "genre": "Electronic",
+      "year": 2013,
+      "stockCount": 40,
+      "price": 25.99
+    },
+    {
+      "id": "6",
+      "title": "Nevermind",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-dWuQAj6wVvKPT62onjN6kPxXC-7WTlzpfA&s",
+      "artist": "Nirvana",
+      "genre": "Grunge",
+      "year": 1991,
+      "stockCount": 85,
+      "price": 16.99
+    },
+    {
+      "id": "7",
+      "title": "Born to Run",
+      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-dWuQAj6wVvKPT62onjN6kPxXC-7WTlzpfA&s",
+      "artist": "Bruce Springsteen",
+      "genre": "Rock",
+      "year": 1975,
+      "stockCount": 55,
+      "price": 14.99
+    }
+  ],
+  "orders": [
+    {
+      "id": "780a",
+      "userId": "1",
+      "orderItems": [
+        {
+          "id": "5",
+          "title": "Random Access Memories",
+          "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png/220px-Beyonce_-_Lemonade_%28Official_Album_Cover%29.png",
+          "artist": "Daft Punk",
+          "genre": "Electronic",
+          "year": 2013,
+          "stockCount": 40,
+          "price": 25.99,
+          "count": 2
+        },
+        {
+          "id": "7",
+          "title": "Born to Run",
+          "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-dWuQAj6wVvKPT62onjN6kPxXC-7WTlzpfA&s",
+          "artist": "Bruce Springsteen",
+          "genre": "Rock",
+          "year": 1975,
+          "stockCount": 55,
+          "price": 14.99,
+          "count": 1
+        }
+      ],
+      "status": "pending",
+      "createdAt": 1722157174074,
+      "totalPrice": 66.97
+    },
+    {
+      "id": "1639",
+      "userId": "1",
+      "orderItems": [
+        {
+          "id": "3",
+          "title": "Abbey Road",
+          "cover": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ACDC_Back_in_Black_cover.svg",
+          "artist": "The Beatles",
+          "genre": "Rock",
+          "year": 1969,
+          "stockCount": 75,
+          "price": 22.99,
+          "count": 2
+        },
+        {
+          "id": "2",
+          "title": "Back in Black",
+          "cover": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ACDC_Back_in_Black_cover.svg",
+          "artist": "AC/DC",
+          "genre": "Rock",
+          "year": 1980,
+          "stockCount": 50,
+          "price": 15.99,
+          "count": 1
+        }
+      ],
+      "status": "pending",
+      "createdAt": 1722157301549,
+      "totalPrice": 61.97
+    },
+    {
+      "id": "a87a",
+      "userId": "1",
+      "orderItems": [
+        {
+          "id": "1",
+          "title": "Thriller",
+          "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Michael_Jackson_-_Thriller.png/220px-Michael_Jackson_-_Thriller.png",
+          "artist": "Michael Jackson",
+          "genre": "Pop",
+          "year": 1982,
+          "stockCount": 100,
+          "price": 19.99,
+          "count": 6
+        }
+      ],
+      "status": "accepted",
+      "createdAt": 1722157653866,
+      "totalPrice": 119.94
+    },
+    {
+      "id": "5013",
+      "userId": "1",
+      "orderItems": [
+        {
+          "id": "1",
+          "title": "Thriller",
+          "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Michael_Jackson_-_Thriller.png/220px-Michael_Jackson_-_Thriller.png",
+          "artist": "Michael Jackson",
+          "genre": "Pop",
+          "year": 1982,
+          "stockCount": 100,
+          "price": 19.99,
+          "count": 2
+        }
+      ],
+      "status": "on courier",
+      "createdAt": 1722157925396,
+      "totalPrice": 39.98
+    },
+    {
+      "id": "8f01",
+      "userId": "2",
+      "orderItems": [
+        {
+          "id": "1",
+          "title": "Thriller",
+          "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Michael_Jackson_-_Thriller.png/220px-Michael_Jackson_-_Thriller.png",
+          "artist": "Michael Jackson",
+          "genre": "Pop",
+          "year": 1982,
+          "stockCount": 100,
+          "price": 19.99,
+          "count": 2
+        },
+        {
+          "id": "2",
+          "title": "Back in Black",
+          "cover": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ACDC_Back_in_Black_cover.svg",
+          "artist": "AC/DC",
+          "genre": "Rock",
+          "year": 1980,
+          "stockCount": 50,
+          "price": 15.99,
+          "count": 1
+        }
+      ],
+      "status": "rejected",
+      "createdAt": 1722161045944,
+      "totalPrice": 55.97
+    },
+    {
+      "id": "8618",
+      "userId": "fe00",
+      "orderItems": [
+        {
+          "id": "3",
+          "title": "Abbey Road",
+          "cover": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ACDC_Back_in_Black_cover.svg",
+          "artist": "The Beatles",
+          "genre": "Rock",
+          "year": 1969,
+          "stockCount": 75,
+          "price": 22.99,
+          "count": 1
+        },
+        {
+          "id": "4",
+          "title": "Lemonade",
+          "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png/220px-Beyonce_-_Lemonade_%28Official_Album_Cover%29.png",
+          "artist": "Beyoncé",
+          "genre": "R&B",
+          "year": 2016,
+          "stockCount": 60,
+          "price": 17.99,
+          "count": 1
+        }
+      ],
+      "status": "accepted",
+      "createdAt": 1722161260871,
+      "totalPrice": 40.98
     }
   ]
 }

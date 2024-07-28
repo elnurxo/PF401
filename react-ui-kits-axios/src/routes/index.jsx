@@ -10,6 +10,13 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "../components/PrivateRoute";
 import EditSong from "../pages/EditSong";
+import Albums from "../pages/Albums";
+import User from "../pages/User";
+import AdminLayout from "../components/AdminLayout";
+import Dashboard from "../pages/Dashboard";
+import Orders from "../pages/Orders";
+import AdminPrivateRoute from "../components/AdminPrivateRoute";
+import AdminLogin from "../pages/AdminLogin";
 
 export const ROUTES = [
   {
@@ -29,6 +36,22 @@ export const ROUTES = [
         element: (
           <PrivateRoute>
             <Songs />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "user",
+        element: (
+          <PrivateRoute>
+            <User />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "albums",
+        element: (
+          <PrivateRoute>
+            <Albums />
           </PrivateRoute>
         ),
       },
@@ -79,6 +102,32 @@ export const ROUTES = [
       {
         path: "*",
         element: <NotFound />,
+      },
+    ],
+  },
+  {
+    element: <AdminLayout />,
+    path: "/admin",
+    children: [
+      {
+        index: true,
+        element: (
+          <AdminPrivateRoute>
+            <Dashboard />
+          </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "orders",
+        element: (
+          <AdminPrivateRoute>
+            <Orders />
+          </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "login",
+        element: <AdminLogin />,
       },
     ],
   },

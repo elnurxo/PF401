@@ -2,21 +2,21 @@ import { useAuth } from "../../services/context/authContext";
 import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const PrivateRoute = ({ children }) => {
+const AdminPrivateRoute = ({ children }) => {
   const { auth } = useAuth();
 
-  if (auth && auth.role=='client') {
+  if (auth && auth.role=='admin') {
     return children;
   } else {
     return <Navigate to={"/login"} />;
   }
 };
 
-PrivateRoute.propTypes = {
+AdminPrivateRoute.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
 };
 
-export default PrivateRoute;
+export default AdminPrivateRoute;

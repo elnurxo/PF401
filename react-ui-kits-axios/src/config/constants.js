@@ -1,6 +1,8 @@
-export const BASE_URL = 'https://spotify-json-server-bjk5.vercel.app';
+export const BASE_URL = 'http://localhost:3000';
 
 export const endpoints = {
     songs: 'songs',
-    users: "users"
+    users: "users",
+    albums: 'albums',
+    orders: 'orders'
 }

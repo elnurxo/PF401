@@ -1,6 +1,8 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import PropTypes from "prop-types";
+import { getOne } from "../api/api";
+import { endpoints } from "../../config/constants";
 
 const AuthContext = createContext(null);
 
@@ -12,10 +14,27 @@ export const AuthProvider = ({ children }) => {
   );
 
   const [auth, setAuth] = useState(localAuth);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (localAuth) {
+      getOne(endpoints.users, localAuth.userId).then((res) => {
+        setUser({ ...res.data });
+      });
+    }
+  }, [localAuth]);
 
   const login = (payload) => {
-    setAuth(payload);
-    setLocalAuth({ userId: payload.id });
+    const response = { ...payload };
+    response.userId = payload.id;
+    response.role = payload.role;
+    setAuth(response);
+    setUser(() => {
+      getOne(endpoints.users, payload.id).then((res) => {
+        setUser({ ...res.data });
+      });
+    });
+    setLocalAuth({ userId: payload.id, role: payload.role });
   };
 
   const logout = () => {
@@ -24,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ auth, login, logout }}>
+    <AuthContext.Provider value={{ auth, login, logout, user, setUser }}>
       {children}
     </AuthContext.Provider>
   );

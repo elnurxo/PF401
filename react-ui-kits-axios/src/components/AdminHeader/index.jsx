@@ -5,15 +5,13 @@ import { HiMiniBars3 } from "react-icons/hi2";
 import { IoCloseSharp } from "react-icons/io5";
 import { useState } from "react";
 import SideBar from "../SideBar";
-import { useFavorites } from "../../services/context/favoriteContext.jsx";
 import { useAuth } from "../../services/context/authContext.jsx";
 import { Button } from "@mui/material";
 import Swal from "sweetalert2";
 
-const Header = () => {
+const AdminHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { auth, logout } = useAuth();
-  const { favorites } = useFavorites();
   return (
     <header className={styles.header}>
       <Container>
@@ -32,38 +30,13 @@ const Header = () => {
             {auth ? (
               <>
                 <li>
-                  <Link className={styles.link} to={"/"}>
-                    Home
+                  <Link className={styles.link} to={"/admin"}>
+                    Dashboard
                   </Link>
                 </li>
                 <li>
-                  <Link className={styles.link} to={"/user"}>
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link className={styles.link} to={"/songs"}>
-                    Songs
-                  </Link>
-                </li>
-                <li>
-                  <Link className={styles.link} to={"/albums"}>
-                    Albums
-                  </Link>
-                </li>
-                <li>
-                  <Link className={styles.link} to={"/add-song"}>
-                    Add Song
-                  </Link>
-                </li>
-                <li>
-                  <Link className={styles.link} to={"/todo"}>
-                    Todo
-                  </Link>
-                </li>
-                <li>
-                  <Link className={styles.link} to={"/favorites"}>
-                    Favorites <sup>{favorites.length}</sup>
+                  <Link className={styles.link} to={"/admin/orders"}>
+                    Orders
                   </Link>
                 </li>
                 <li>
@@ -129,4 +102,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AdminHeader;
